@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 枚举的构造方法中使用常量这种写法比较好
  * @author Clinton Begin
  */
 public enum JdbcType {
