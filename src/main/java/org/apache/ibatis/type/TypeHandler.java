@@ -21,16 +21,42 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ * 使用场景：mybatis在预处理语句中设置一个参数时，或者从结果集中取出一个值时，将java类型转换为jdbc类型，或者将jdbc类型转换为java类型
  * @author Clinton Begin
  */
 public interface TypeHandler<T> {
-
+  /**
+   * 通过preparedStatement对象设置参数，将T类型的数据存入数据库	
+   * @param ps
+   * @param i
+   * @param parameter
+   * @param jdbcType
+   * @throws SQLException
+   */
   void setParameter(PreparedStatement ps, int i, T parameter, JdbcType jdbcType) throws SQLException;
-
+  /**
+   * 通过列名获取结果数据
+   * @param rs
+   * @param columnName
+   * @return
+   * @throws SQLException
+   */
   T getResult(ResultSet rs, String columnName) throws SQLException;
-
+  /**
+   * 通过下标获取结果数据
+   * @param rs
+   * @param columnIndex
+   * @return
+   * @throws SQLException
+   */
   T getResult(ResultSet rs, int columnIndex) throws SQLException;
-
+  /**
+   * 通过CallableStatement获取结果数据
+   * @param cs
+   * @param columnIndex
+   * @return
+   * @throws SQLException
+   */
   T getResult(CallableStatement cs, int columnIndex) throws SQLException;
 
 }

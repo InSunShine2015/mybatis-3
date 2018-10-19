@@ -21,3 +21,13 @@ Essentials
 * [See the docs](http://mybatis.github.io/mybatis-3)
 * [Download Latest](https://github.com/mybatis/mybatis-3/releases)
 * [Download Snapshot](https://oss.sonatype.org/content/repositories/snapshots/org/mybatis/mybatis/)
+
+
+mybatis 的包说明：
+	type包：处理java类型和jdbc类型的互转
+		主要的类：
+		       JdbcType
+		       TypeAliasRegistry
+		       TypeHandler接口-->BaseTypeHandler-->所有的实现类-->TypeHandlerRegistry
+		       TypeReference
+		  两个注解：MappedJdbcTypes,MappedTypes
